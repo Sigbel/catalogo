@@ -79,10 +79,10 @@ const LoginForm = () => {
             marginTop={2}
           >
             <Link>
-              <Typography fontSize='13px'>Esqueci minha senha</Typography>
+              <Typography fontSize="13px">Esqueci minha senha</Typography>
             </Link>
             <Link>
-              <Typography fontSize='13px'>
+              <Typography fontSize="13px">
                 Ainda não tem cadastro?
                 <br />
                 Faça seu Primeiro Acesso!
@@ -90,7 +90,17 @@ const LoginForm = () => {
             </Link>
           </Box>
         </Box>
-        <Box bgcolor="#5271ff" minHeight="100vh" flex={6}></Box>
+        <Box 
+        bgcolor="#5271ff" 
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+        minHeight="100vh" flex={6}>
+          <img 
+            src="https://res.cloudinary.com/dvqvv2bkq/image/upload/v1733522620/images/photo/vsksil2k8zy52sargvk6.jpg" 
+            width='1000px'
+            alt="" />
+        </Box>
       </Stack>
     </>
   );
