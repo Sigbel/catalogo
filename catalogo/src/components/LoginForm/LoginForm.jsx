@@ -85,7 +85,7 @@ const LoginForm = () => {
               <Typography fontSize='13px'>
                 Ainda não tem cadastro?
                 <br />
-                Faça seu Primeiro Acesso
+                Faça seu Primeiro Acesso!
               </Typography>
             </Link>
           </Box>
