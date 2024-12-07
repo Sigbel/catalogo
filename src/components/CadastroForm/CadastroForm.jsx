@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Typography,
   TextField,
@@ -11,30 +11,28 @@ import {
 } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 
-const LoginForm = ({ setAuthenticated }) => {
+const CadastroForm = ({ setAuthenticated }) => {
   const [cpf, setCPF] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignIn = () => {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    
-    console.log(users)
-
-    const user = users.find(
-      (user) => user.cpf === cpf && user.password === password
-    );
-
-    console.log(user)
-
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
+  const handleSignUp = () => {
+    if (cpf && password) {
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = { cpf, password };
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Cadastro realizado com sucesso!");
       setAuthenticated(true);
       navigate("/home");
     } else {
-      alert("CPF ou senha incorretos!");
+      alert("Preencha os campos!");
     }
   };
+
+  useEffect(() => {
+    console.log(cpf);
+  }, [setCPF]);
 
   return (
     <>
@@ -54,10 +52,7 @@ const LoginForm = ({ setAuthenticated }) => {
             width="100px"
           ></img>
           <Box display="flex" flexDirection="column" gap={0.5} marginBottom={2}>
-            <Typography align="center">Que bom ter você por aqui!</Typography>
-            <Typography align="center">
-              Entre na plataforma e troque pontos por vouchers.
-            </Typography>
+            <Typography align="center">Cadastre-se!</Typography>
           </Box>
           <Box
             component="form"
@@ -81,20 +76,15 @@ const LoginForm = ({ setAuthenticated }) => {
               type="password"
               placeholder="Senha"
               variant="outlined"
-              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></TextField>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary"></Checkbox>}
-              label="Lembre de mim"
-            ></FormControlLabel>
             <Button
               type="submit"
-              onClick={() => handleSignIn()}
+              onClick={() => handleSignUp()}
               variant="contained"
             >
-              Entrar
+              Cadastrar
             </Button>
           </Box>
           <Box
@@ -105,15 +95,13 @@ const LoginForm = ({ setAuthenticated }) => {
             alignItems="center"
             marginTop={2}
           >
-            <Link to="/">
+            <Link to='/login'>
               <Typography fontSize="13px">Esqueci minha senha</Typography>
             </Link>
             <Link>
-              <Link to="/signup">
+              <Link to='/login'>
                 <Typography fontSize="13px">
-                  Ainda não tem cadastro?
-                  <br />
-                  Faça seu Primeiro Acesso!
+                  Já tem conta? Faça o login!
                 </Typography>
               </Link>
             </Link>
@@ -138,4 +126,4 @@ const LoginForm = ({ setAuthenticated }) => {
   );
 };
 
-export default LoginForm;
+export default CadastroForm;

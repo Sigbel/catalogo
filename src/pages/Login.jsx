@@ -1,9 +1,11 @@
 import React from 'react'
 import LoginForm from '../components/LoginForm/LoginForm'
 
-const Login = () => {
+const Login = ({setAuthenticated}) => {
   return (
-    <LoginForm></LoginForm>
+    <>
+      <LoginForm setAuthenticated={setAuthenticated}></LoginForm>
+    </>
   )
 }
 
