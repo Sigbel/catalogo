@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Voucher for Dinner for 2 People",
+    "image": "https://exemplo.com/imagens/voucher-jantar.jpg",
+    "price": 150.0
+  },
+  {
+    "id": 2,
+    "title": "Voucher for Adventure Experience",
+    "image": "https://exemplo.com/imagens/voucher-aventura.jpg",
+    "price": 250.0
+  },
+  {
+    "id": 3,
+    "title": "Voucher for Shopping in Fashion Store",
+    "image": "https://exemplo.com/imagens/voucher-compras.jpg",
+    "price": 100.0
+  },
+  {
+    "id": 4,
+    "title": "Voucher for Relaxing Massage",
+    "image": "https://exemplo.com/imagens/voucher-massagem.jpg",
+    "price": 120.0
+  },
+  {
+    "id": 5,
+    "title": "Voucher for Yoga Classes",
+    "image": "https://exemplo.com/imagens/voucher-yoga.jpg",
+    "price": 90.0
+  },
+  {
+    "id": 6,
+    "title": "Voucher for Couples Spa",
+    "image": "https://exemplo.com/imagens/voucher-spa.jpg",
+    "price": 350.0
+  },
+  {
+    "id": 7,
+    "title": "Voucher for Cinema for 2 People",
+    "image": "https://exemplo.com/imagens/voucher-cinema.jpg",
+    "price": 50.0
+  },
+  {
+    "id": 8,
+    "title": "Voucher for Hot Air Balloon Ride",
+    "image": "https://exemplo.com/imagens/voucher-balao.jpg",
+    "price": 400.0
+  },
+  {
+    "id": 9,
+    "title": "Voucher for Cooking Classes",
+    "image": "https://exemplo.com/imagens/voucher-culinaria.jpg",
+    "price": 180.0
+  },
+  {
+    "id": 10,
+    "title": "Voucher for Rafting Adventure",
+    "image": "https://exemplo.com/imagens/voucher-rafting.jpg",
+    "price": 220.0
+  },
+  {
+    "id": 11,
+    "title": "Voucher for Helicopter Ride",
+    "image": "https://exemplo.com/imagens/voucher-helicoptero.jpg",
+    "price": 500.0
+  },
+  {
+    "id": 12,
+    "title": "Voucher for Gastronomic Experience",
+    "image": "https://exemplo.com/imagens/voucher-gastronomica.jpg",
+    "price": 300.0
+  },
+  {
+    "id": 13,
+    "title": "Voucher for Domestic Travel Destination",
+    "image": "https://exemplo.com/imagens/voucher-viagem.jpg",
+    "price": 2000.0
+  },
+  {
+    "id": 14,
+    "title": "Voucher for Professional Photography Session",
+    "image": "https://exemplo.com/imagens/voucher-fotografia.jpg",
+    "price": 250.0
+  },
+  {
+    "id": 15,
+    "title": "Voucher for Dance Classes",
+    "image": "https://exemplo.com/imagens/voucher-danca.jpg",
+    "price": 130.0
+  },
+  {
+    "id": 16,
+    "title": "Voucher for Gastronomic Tour",
+    "image": "https://exemplo.com/imagens/voucher-tourgastronomico.jpg",
+    "price": 180.0
+  },
+  {
+    "id": 17,
+    "title": "Voucher for Romantic Picnic",
+    "image": "https://exemplo.com/imagens/voucher-piquenique.jpg",
+    "price": 90.0
+  },
+  {
+    "id": 18,
+    "title": "Voucher for Spa Session",
+    "image": "https://exemplo.com/imagens/voucher-spasession.jpg",
+    "price": 250.0
+  },
+  {
+    "id": 19,
+    "title": "Voucher for Photography Classes",
+    "image": "https://exemplo.com/imagens/voucher-fotografiaaulas.jpg",
+    "price": 150.0
+  },
+  {
+    "id": 20,
+    "title": "Voucher for Luxury Train Ride",
+    "image": "https://exemplo.com/imagens/voucher-tremluxo.jpg",
+    "price": 600.0
+  }
+]

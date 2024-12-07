@@ -1,14 +1,20 @@
 import './App.css'
-import LoginForm from './components/LoginForm/LoginForm'
-import CadastroForm from './components/CadastroForm/CadastroForm'
-import {Route, Routes, Link, useNavigate} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
+
+// Hooks
 import { useEffect, useState } from 'react'
+
+// Pages
 import Home from './pages/Home'
 import Login from './pages/Login'
+import ShowCase from './pages/Showcase'
+
+// Components
+import LoginForm from './components/LoginForm/LoginForm'
+import CadastroForm from './components/CadastroForm/CadastroForm'
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
-  const navigate = useNavigate()
 
   useEffect(() => {
     const userLoggedIn = localStorage.getItem('user')
@@ -17,12 +23,6 @@ function App() {
     }
   }, [])
 
-  const handleLogout = () => {
-    localStorage.removeItem('user')
-    setAuthenticated(false)
-    navigate('/login')
-  }
-
   return (
     <>
       <Routes>
@@ -30,6 +30,7 @@ function App() {
         <Route path="/home" element={authenticated ? <Home setAuthenticated={setAuthenticated}/> : <LoginForm />} />
         <Route path="/login" element={<LoginForm setAuthenticated={setAuthenticated}></LoginForm>}/>
         <Route path="/signup" element={<CadastroForm setAuthenticated={setAuthenticated}></CadastroForm>}/>
+        <Route path='/showcase' element={<ShowCase setAuthenticated={setAuthenticated}></ShowCase>}/>
         <Route path="/" element={<Login setAuthenticated={setAuthenticated}></Login>}/>
         </Route>
       </Routes>
