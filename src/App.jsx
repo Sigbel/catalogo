@@ -14,7 +14,7 @@ import Products from "./pages/Products";
 // Components
 import LoginForm from "./components/LoginForm/LoginForm.jsx";
 import CadastroForm from "./components/CadastroForm/CadastroForm.jsx";
-import NavBar from "./components/Navbar/NavBar.jsx";
+import NavBar from "./components/Navbar.jsx";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
