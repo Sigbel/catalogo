@@ -41,24 +41,36 @@ const LoginForm = ({ setAuthenticated }) => {
 
   return (
     <>
-      <Stack direction="row-reverse" spacing={1}>
+      <Stack
+        direction={{ xs: "column-reverse", md: "row-reverse" }}
+        spacing={1}
+        sx={{ minHeight: "100vh" }}
+      >
         <Box
-          //   bgcolor="#5271ff"
           display="flex"
           flexDirection="column"
-          height="100vh"
           flex={4}
           alignItems="center"
           justifyContent="center"
+          sx={{
+            padding: { xs: 2, md: 4 },
+            textAlign: { xs: "center", md: "left" },
+          }}
         >
           <img
             src="https://res.cloudinary.com/dvqvv2bkq/image/upload/v1733447154/images/photo/hlb4dsp4gfbbbiorq8df.png"
             alt="Laurear"
-            width="100px"
+            width="80px"
           ></img>
-          <Box display="flex" flexDirection="column" gap={0.5} marginBottom={2}>
-            <Typography align="center">Que bom ter você por aqui!</Typography>
-            <Typography align="center">
+          <Box
+            display="flex"
+            flexDirection="column"
+            gap={1}
+            marginBottom={3}
+            maxWidth={{ xs: "100%", md: "360px" }}
+          >
+            <Typography variant="h6" align="center">Que bom ter você por aqui!</Typography>
+            <Typography variant="body2" align="center">
               Entre na plataforma e troque pontos por vouchers.
             </Typography>
           </Box>
@@ -67,8 +79,11 @@ const LoginForm = ({ setAuthenticated }) => {
             bgcolor="#ffffff"
             display="flex"
             flexDirection="column"
-            maxWidth="360px"
+            maxWidth={{xs: "100%", md: "360px"}}
             gap={2}
+            width="100%"
+            borderRadius={1}
+            padding={2}
           >
             <FormControl>
               <TextField
@@ -102,6 +117,8 @@ const LoginForm = ({ setAuthenticated }) => {
           </Box>
           <Box
             display="flex"
+            flexDirection={{xs: "column", md: "row"}}
+            gap={1}
             justifyContent="space-between"
             width="100%"
             maxWidth="360px"
@@ -127,7 +144,7 @@ const LoginForm = ({ setAuthenticated }) => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          minHeight="100vh"
+          sx={{padding:2, minHeight: {xs: "300px", md:"100vh"}}}
           flex={6}
         >
           <img
