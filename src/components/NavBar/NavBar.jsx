@@ -17,46 +17,24 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { useNavigate } from "react-router-dom";
 
-import products from "../../utils/products.json";
+import { useCart } from "../../contexts/CartContext";
 
-const NavBar = ({ cart, setCart, onSearch, setAuthenticated }) => {
+const NavBar = ({setAuthenticated}) => {
   const navigate = useNavigate();
+  const {
+    cart,
+    handleRemoveItem,
+    handleUpdateQuantity,
+    handleSearch,
+    setSearchTerm,
+  } = useCart();
   const user = JSON.parse(localStorage.getItem("user")) || "Usuário";
-
   const [isCartOpen, setCartOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     setAuthenticated(false);
     navigate("/login");
-  };
-
-  const handleUpdateQuantity = (productId, quantity) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
-
-  const handleRemoveItem = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-  };
-
-  const handleSearch = () => {
-    if (!searchTerm.trim()) {
-      navigate("/showcase");
-    } else {
-      const filteredProducts = products.filter((product) =>
-        product.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      navigate("/products", {state:{filteredProducts}})
-    }
   };
 
   return (

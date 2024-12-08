@@ -3,11 +3,13 @@ import { Route, Routes, useLocation } from "react-router-dom";
 
 // Hooks
 import { useEffect, useState } from "react";
+import CartProvider from "./contexts/CartContext";
 
 // Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ShowCase from "./pages/Showcase";
+import Products from "./pages/Products";
 
 // Components
 import LoginForm from "./components/LoginForm/LoginForm";
@@ -50,24 +52,22 @@ function App() {
 }
 
 const MainContent = ({
-  onSearch,
   cart,
-  handleCartState,
   setAuthenticated,
   setCart,
-  authenticated
+  authenticated,
 }) => {
   const location = useLocation();
 
-  const showNavbar = location.pathname !== "/login" && location.pathname !== "/signup";
+  const showNavbar =
+    location.pathname !== "/login" && location.pathname !== "/signup";
 
   return (
     <>
+    <CartProvider>
+    
       {showNavbar && (
         <NavBar
-          cart={cart}
-          setCart={handleCartState}
-          onSearch={onSearch}
           setAuthenticated={setAuthenticated}
         ></NavBar>
       )}
@@ -104,10 +104,15 @@ const MainContent = ({
           }
         />
         <Route
+          path="/products"
+          element={<Products setAuthenticated={setAuthenticated}></Products>}
+        />
+        <Route
           path="/"
           element={<Login setAuthenticated={setAuthenticated}></Login>}
         />
       </Routes>
+    </CartProvider>
     </>
   );
 };

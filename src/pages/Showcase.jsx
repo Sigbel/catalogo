@@ -7,23 +7,11 @@ import ProductShowcase from "../components/ProductShowcase/ProductShowcase";
 
 // Json
 import products from "../utils/products.json";
-
-const ShowCase = ({ setCart}) => {
-    const handleAddToCart = (product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
-  };
+import { useCart } from "../contexts/CartContext";
 
 
+const ShowCase = () => {
+  const {handleAddToCart} = useCart()
 
   return (
     <>
