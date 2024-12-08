@@ -22,13 +22,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
-import ProductCart from "./ProductCart/ProductCart";
+import ProductCart from "./../ProductCart/ProductCart";
 import SearchIcon from "@mui/icons-material/Search";
 
 // Hooks
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 import { useMediaQuery } from "@mui/material";
 
 const NavBar = ({ setAuthenticated }) => {
