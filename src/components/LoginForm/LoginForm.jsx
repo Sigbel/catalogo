@@ -18,14 +18,10 @@ const LoginForm = ({ setAuthenticated }) => {
 
   const handleSignIn = () => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    
-    console.log(users)
 
     const user = users.find(
       (user) => user.cpf === cpf && user.password === password
     );
-
-    console.log(user)
 
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
