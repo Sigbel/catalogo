@@ -1,12 +1,15 @@
-import React from 'react'
-import LoginForm from '../components/LoginForm/LoginForm'
+// React
+import React from "react";
 
-const Login = ({setAuthenticated}) => {
+// Components
+import LoginForm from "../components/LoginForm/LoginForm";
+
+const Login = ({ setAuthenticated }) => {
   return (
     <>
       <LoginForm setAuthenticated={setAuthenticated}></LoginForm>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

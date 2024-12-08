@@ -1,13 +1,16 @@
+// React
 import React from "react";
-import { Card, CardMedia, CardContent, Typography, Box } from "@mui/material";
 
+// Utils
+import { Card, CardMedia, CardContent, Typography, Box } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-import products from "../utils/products.json";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Database
+import products from "../utils/products.json";
 
 const Home = () => {
   return (

@@ -1,3 +1,7 @@
+// React
+import React from "react";
+
+// Utils
 import {
   Box,
   Button,
@@ -8,18 +12,18 @@ import {
   CardContent,
   IconButton,
 } from "@mui/material";
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+// Hooks
+import { useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+
+// Icons
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const Products = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {handleAddToCart} = useCart()
-
-
+  const { handleAddToCart } = useCart();
   const { filteredProducts } = location.state || [];
 
   return (

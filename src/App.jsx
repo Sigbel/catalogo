@@ -14,7 +14,7 @@ import Products from "./pages/Products";
 // Components
 import LoginForm from "./components/LoginForm/LoginForm";
 import CadastroForm from "./components/CadastroForm/CadastroForm";
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/Navbar/NavBar";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -51,68 +51,62 @@ function App() {
   );
 }
 
-const MainContent = ({
-  cart,
-  setAuthenticated,
-  setCart,
-  authenticated,
-}) => {
+const MainContent = ({ cart, setAuthenticated, setCart, authenticated }) => {
   const location = useLocation();
 
   const showNavbar =
-    location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/";
+    location.pathname !== "/login" &&
+    location.pathname !== "/signup" &&
+    location.pathname !== "/";
 
   return (
     <>
-    <CartProvider>
-    
-      {showNavbar && (
-        <NavBar
-          setAuthenticated={setAuthenticated}
-        ></NavBar>
-      )}
+      <CartProvider>
+        {showNavbar && <NavBar setAuthenticated={setAuthenticated}></NavBar>}
 
-      <Routes>
-        <Route
-          path="/home"
-          element={
-            authenticated ? (
-              <Home setAuthenticated={setAuthenticated} />
-            ) : (
-              <LoginForm />
-            )
-          }
-        />
-        <Route
-          path="/login"
-          element={<LoginForm setAuthenticated={setAuthenticated}></LoginForm>}
-        />
-        <Route
-          path="/signup"
-          element={
-            <CadastroForm setAuthenticated={setAuthenticated}></CadastroForm>
-          }
-        />
-        <Route
-          path="/showcase"
-          element={
-            <ShowCase
-              setAuthenticated={setAuthenticated}
-              cart={cart}
-              setCart={setCart}
-            ></ShowCase>
-          }
-        />
-        <Route
-          path="/products"
-          element={<Products setAuthenticated={setAuthenticated}></Products>}
-        />
-        <Route
-          path="/"
-          element={<Login setAuthenticated={setAuthenticated}></Login>}
-        />
-      </Routes>
-    </CartProvider>
+        <Routes>
+          <Route
+            path="/home"
+            element={
+              authenticated ? (
+                <Home setAuthenticated={setAuthenticated} />
+              ) : (
+                <LoginForm />
+              )
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <LoginForm setAuthenticated={setAuthenticated}></LoginForm>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <CadastroForm setAuthenticated={setAuthenticated}></CadastroForm>
+            }
+          />
+          <Route
+            path="/showcase"
+            element={
+              <ShowCase
+                setAuthenticated={setAuthenticated}
+                cart={cart}
+                setCart={setCart}
+              ></ShowCase>
+            }
+          />
+          <Route
+            path="/products"
+            element={<Products setAuthenticated={setAuthenticated}></Products>}
+          />
+          <Route
+            path="/"
+            element={<Login setAuthenticated={setAuthenticated}></Login>}
+          />
+        </Routes>
+      </CartProvider>
     </>
   );
 };

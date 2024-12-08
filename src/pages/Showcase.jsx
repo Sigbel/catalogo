@@ -1,17 +1,20 @@
+// React
 import React from "react";
 
-// React
+// Utils
 import { Grid2 } from "@mui/material";
+
 // Components
 import ProductShowcase from "../components/ProductShowcase/ProductShowcase";
 
-// Json
-import products from "../utils/products.json";
+// Hooks
 import { useCart } from "../contexts/CartContext";
 
+// Database
+import products from "../utils/products.json";
 
 const ShowCase = () => {
-  const {handleAddToCart} = useCart()
+  const { handleAddToCart } = useCart();
 
   return (
     <>

@@ -1,4 +1,7 @@
+// React
 import React from "react";
+
+// Utils
 import {
   Card,
   CardMedia,
@@ -7,6 +10,8 @@ import {
   IconButton,
   Box,
 } from "@mui/material";
+
+// Icons
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const ProductShowcase = ({ product, onAddToCart }) => {
@@ -33,7 +38,7 @@ const ProductShowcase = ({ product, onAddToCart }) => {
               top: 10,
               right: 10,
               backgroundColor: "rgba(255,255,255,0.8)",
-              '&:hover': {backgroundColor: 'rgba(255,255,255,1)'},
+              "&:hover": { backgroundColor: "rgba(255,255,255,1)" },
             }}
             color="primary"
             onClick={() => onAddToCart(product)}

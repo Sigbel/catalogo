@@ -1,16 +1,20 @@
-import React, { createContext, useContext, useState } from "react";
+// React
+import React, { createContext } from "react";
 
-import products from '../utils/products.json'
+// Database
+import products from "../utils/products.json";
 
+// Hooks
 import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  
-  const navigate = useNavigate()
+
+  const navigate = useNavigate();
 
   const handleUpdateQuantity = (productId, quantity) => {
     setCart((prevCart) =>

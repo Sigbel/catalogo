@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+// React
+import React from "react";
+
+// Utils
 import {
   Typography,
   TextField,
@@ -7,9 +10,13 @@ import {
   Stack,
   FormControl,
 } from "@mui/material";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const CadastroForm = ({ setAuthenticated }) => {
+// Hooks
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+const CadastroForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [cpf, setCPF] = useState("");
@@ -19,7 +26,7 @@ const CadastroForm = ({ setAuthenticated }) => {
   const handleSignUp = () => {
     if (name && cpf && password) {
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      const points = Math.floor(Math.random() * (1000 - 10 + 1)) + 10
+      const points = Math.floor(Math.random() * (1000 - 10 + 1)) + 10;
       const user = { name, email, cpf, password, points };
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
@@ -39,7 +46,6 @@ const CadastroForm = ({ setAuthenticated }) => {
     <>
       <Stack direction="row-reverse" spacing={1}>
         <Box
-          //   bgcolor="#5271ff"
           display="flex"
           flexDirection="column"
           height="100vh"

@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+// React
+import React from "react";
+
+// Utils
 import {
   Typography,
   TextField,
@@ -9,7 +12,11 @@ import {
   FormControlLabel,
   Checkbox,
 } from "@mui/material";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+// Hooks
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const LoginForm = ({ setAuthenticated }) => {
   const [cpf, setCPF] = useState("");

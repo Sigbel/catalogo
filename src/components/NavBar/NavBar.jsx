@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+// React
+import React from "react";
+
+// Utils
 import {
   AppBar,
   Toolbar,
@@ -9,17 +12,19 @@ import {
   Box,
 } from "@mui/material";
 
+// Icons
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LogoutIcon from "@mui/icons-material/Logout";
 import HomeIcon from "@mui/icons-material/Home";
 import ProductCart from "../ProductCart/ProductCart";
 import SearchIcon from "@mui/icons-material/Search";
 
+// Hooks
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useCart } from "../../contexts/CartContext";
 
-const NavBar = ({setAuthenticated}) => {
+const NavBar = ({ setAuthenticated }) => {
   const navigate = useNavigate();
   const {
     cart,
@@ -84,7 +89,6 @@ const NavBar = ({setAuthenticated}) => {
               <LogoutIcon></LogoutIcon>
             </IconButton>
           </Box>
-
         </Toolbar>
       </AppBar>
       <ProductCart
