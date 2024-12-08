@@ -12,9 +12,9 @@ import ShowCase from "./pages/Showcase";
 import Products from "./pages/Products";
 
 // Components
-import NavBar from "./components/Navbar/NavBar";
-import LoginForm from "./components/LoginForm/LoginForm";
-import CadastroForm from "./components/CadastroForm/CadastroForm";
+import LoginForm from "./components/LoginForm/LoginForm.jsx";
+import CadastroForm from "./components/CadastroForm/CadastroForm.jsx";
+import NavBar from "./components/Navbar/NavBar.jsx";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
