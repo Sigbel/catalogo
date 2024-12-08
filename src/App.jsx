@@ -12,9 +12,9 @@ import ShowCase from "./pages/Showcase";
 import Products from "./pages/Products";
 
 // Components
+import NavBar from "./components/Navbar/NavBar";
 import LoginForm from "./components/LoginForm/LoginForm";
 import CadastroForm from "./components/CadastroForm/CadastroForm";
-import NavBar from "./components/Navbar/NavBar";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
