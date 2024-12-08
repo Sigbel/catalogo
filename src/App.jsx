@@ -8,17 +8,15 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ShowCase from "./pages/Showcase";
-import { AppBar, Toolbar, IconButton, Badge } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 // Components
 import LoginForm from "./components/LoginForm/LoginForm";
 import CadastroForm from "./components/CadastroForm/CadastroForm";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [cart, setCart] = useState([]);
-  const [isCartOpen, setCartOpen] = useState(false);
 
   useEffect(() => {
     const userLoggedIn = localStorage.getItem("user");
@@ -27,19 +25,14 @@ function App() {
     }
   }, []);
 
+  const handleSearch = (term) => {
+    setSearchTerm(term)
+  }
+
   return (
     <>
-      <AppBar position="sticky">
-        <Toolbar>
-          <IconButton color="inherit" onClick={() => setCartOpen(true)}>
-            <Badge badgeContent={cart.length} color="error">
-              <ShoppingCartIcon></ShoppingCartIcon>
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Routes>
-        <Route>
+      <NavBar cartItemCount={cart.length} onSearch={handleSearch}></NavBar>
+        <Routes>
           <Route
             path="/home"
             element={
@@ -69,8 +62,6 @@ function App() {
                 setAuthenticated={setAuthenticated}
                 cart={cart}
                 setCart={setCart}
-                isCartOpen={isCartOpen}
-                setCartOpen={setCartOpen}
               ></ShowCase>
             }
           />
@@ -78,8 +69,7 @@ function App() {
             path="/"
             element={<Login setAuthenticated={setAuthenticated}></Login>}
           />
-        </Route>
-      </Routes>
+        </Routes>
     </>
   );
 }

@@ -2,8 +2,6 @@ import React from "react";
 
 // React
 import { Grid2 } from "@mui/material";
-
-
 // Components
 import ProductShowcase from "../components/ProductShowcase/ProductShowcase";
 import ProductCart from "../components/ProductCart/ProductCart";
@@ -11,7 +9,7 @@ import ProductCart from "../components/ProductCart/ProductCart";
 // Json
 import products from "../utils/products.json";
 
-const ShowCase = ({cart, isCartOpen, setCartOpen, setCart}) => {
+const ShowCase = ({cart, setCart}) => {
     const handleAddToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -56,8 +54,6 @@ const ShowCase = ({cart, isCartOpen, setCartOpen, setCart}) => {
       </Grid2>
       <ProductCart
         cartItems={cart}
-        open={isCartOpen}
-        onClose={() => setCartOpen(false)}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
       ></ProductCart>
