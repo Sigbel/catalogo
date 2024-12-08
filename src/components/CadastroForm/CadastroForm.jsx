@@ -19,12 +19,13 @@ const CadastroForm = ({ setAuthenticated }) => {
   const handleSignUp = () => {
     if (name && cpf && password) {
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      const user = { name, email, cpf, password };
+      const points = Math.floor(Math.random() * (1000 - 10 + 1)) + 10
+      const user = { name, email, cpf, password, points };
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
+
       alert("Cadastro realizado com sucesso!");
-      setAuthenticated(true);
-      navigate("/home");
+      navigate("/login");
     } else {
       alert("Preencha os campos!");
     }

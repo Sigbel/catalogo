@@ -60,7 +60,7 @@ const MainContent = ({
   const location = useLocation();
 
   const showNavbar =
-    location.pathname !== "/login" && location.pathname !== "/signup";
+    location.pathname !== "/login" && location.pathname !== "/signup" && location.pathname !== "/";
 
   return (
     <>

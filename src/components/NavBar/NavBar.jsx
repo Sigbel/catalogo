@@ -69,8 +69,9 @@ const NavBar = ({setAuthenticated}) => {
               <SearchIcon></SearchIcon>
             </IconButton>
           </Box>
-
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Typography variant="body1">{user.points} pontos</Typography>
+
             <Typography variant="body1">Olá, {user.name}</Typography>
 
             <IconButton color="inherit" onClick={() => setCartOpen(true)}>
@@ -83,6 +84,7 @@ const NavBar = ({setAuthenticated}) => {
               <LogoutIcon></LogoutIcon>
             </IconButton>
           </Box>
+
         </Toolbar>
       </AppBar>
       <ProductCart
