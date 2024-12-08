@@ -6,20 +6,20 @@ import {
   Button,
   Stack,
   FormControl,
-  FormControlLabel,
-  Checkbox,
 } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
 
 const CadastroForm = ({ setAuthenticated }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [cpf, setCPF] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    if (cpf && password) {
+    if (name && cpf && password) {
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      const user = { cpf, password };
+      const user = { name, email, cpf, password };
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
       alert("Cadastro realizado com sucesso!");
@@ -64,6 +64,26 @@ const CadastroForm = ({ setAuthenticated }) => {
           >
             <FormControl>
               <TextField
+                type="name"
+                placeholder="Nome"
+                variant="outlined"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></TextField>
+            </FormControl>
+            <FormControl>
+              <TextField
+                type="email"
+                placeholder="Email"
+                variant="outlined"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              ></TextField>
+            </FormControl>
+            <FormControl>
+              <TextField
                 type="cpf"
                 placeholder="CPF"
                 variant="outlined"
@@ -95,11 +115,11 @@ const CadastroForm = ({ setAuthenticated }) => {
             alignItems="center"
             marginTop={2}
           >
-            <Link to='/login'>
+            <Link to="/login">
               <Typography fontSize="13px">Esqueci minha senha</Typography>
             </Link>
             <Link>
-              <Link to='/login'>
+              <Link to="/login">
                 <Typography fontSize="13px">
                   Já tem conta? Faça o login!
                 </Typography>

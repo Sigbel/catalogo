@@ -24,7 +24,7 @@ const ProductShowcase = ({ product, onAddToCart }) => {
             <Typography variant="h6">{product.title}</Typography>
             <Typography variant="body2" color="text.secondary">
               {" "}
-              R$ {product.price.toFixed(2)}
+              {product.price} pontos
             </Typography>
           </CardContent>
           <IconButton

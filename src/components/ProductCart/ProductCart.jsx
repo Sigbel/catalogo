@@ -12,7 +12,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add"
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const ProductCart = ({ cartItems, open, onClose }) => {
+const ProductCart = ({ cartItems, open, onClose, onUpdateQuantity, onRemoveItem }) => {
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
       <Box sx={{ width: 300, padding: 2 }}>
@@ -30,7 +30,7 @@ const ProductCart = ({ cartItems, open, onClose }) => {
               <Box>
                 <Typography variant="body1">{item.title}</Typography>
                 <Typography variant="body2" color="text.secondary">
-                  R$ {item.price.toFixed(2)} x {item.quantity} = R$ {(item.price * item.quantity).toFixed(2)}
+                  {item.price} x {item.quantity} = {(item.price * item.quantity)}
                 </Typography>
               </Box>
               <Box sx={{display: 'flex', alignItems: 'center'}}>
