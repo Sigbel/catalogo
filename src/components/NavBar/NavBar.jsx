@@ -44,7 +44,7 @@ const NavBar = ({ setAuthenticated }) => {
 
   return (
     <>
-      <AppBar position="sticky">
+      <AppBar position="sticky" sx={{backgroundColor: "#5271ff"}}>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton color="inherit" onClick={() => navigate("/home")}>
             <HomeIcon></HomeIcon>
@@ -59,6 +59,7 @@ const NavBar = ({ setAuthenticated }) => {
                 backgroundColor: "white",
                 borderRadius: 1,
                 width: "100%",
+                marginRight: "8px",
               }}
               onChange={(e) => setSearchTerm(e.target.value)}
             ></TextField>
@@ -69,15 +70,31 @@ const NavBar = ({ setAuthenticated }) => {
               sx={{
                 backgroundColor: "white",
                 borderRadius: 1,
+                padding: "8px",
+                color: "#5271ff",
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.8)" }
               }}
             >
               <SearchIcon></SearchIcon>
             </IconButton>
           </Box>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Typography variant="body1">{user.points} pontos</Typography>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
+            <Box 
+              sx={{
+                backgroundColor: "#ffffff",
+                color: "#5271ff",
+                borderRadius: "10px",
+                padding: "4px 10px",
+                fontWeight: "bold",
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {user.points} pontos
+            </Box>
 
-            <Typography variant="body1">Olá, {user.name}</Typography>
+            <Typography variant="body1" sx={{color: "#fff", fontWeight: "500"}}>Olá, {user.name}</Typography>
 
             <IconButton color="inherit" onClick={() => setCartOpen(true)}>
               <Badge badgeContent={cart.length} color="error">

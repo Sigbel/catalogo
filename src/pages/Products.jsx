@@ -35,20 +35,52 @@ const Products = () => {
             : "Nenhum produto encontrado."}
         </Typography>
         {filteredProducts.length ? (
-          <Grid2 container spacing={2}>
+          <Grid2
+            container
+            spacing={4}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
             {filteredProducts.map((product) => (
               <Card
-                sx={{ minWidth: 300, position: "relative", margin: "0 auto" }}
+                sx={{
+                  minWidth: 300,
+                  maxWidth: 300,
+                  margin: "0 auto",
+                  boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
               >
                 <Box sx={{ position: "relative" }}>
                   <CardMedia
                     component="img"
-                    height="240px"
+                    height="250"
                     image={product.image}
                     alt={product.title}
                   ></CardMedia>
-                  <CardContent>
-                    <Typography variant="h6">{product.title}</Typography>
+                  <CardContent
+                    sx={{
+                      flexGrow: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 1,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {product.title}
+                    </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {" "}
                       {product.price} pontos
