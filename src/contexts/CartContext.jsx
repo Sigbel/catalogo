@@ -45,6 +45,12 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   const handleAddToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -70,6 +76,7 @@ const CartProvider = ({ children }) => {
         handleUpdateQuantity,
         searchTerm,
         setSearchTerm,
+        handleKeyDown,
       }}
     >
       {children}

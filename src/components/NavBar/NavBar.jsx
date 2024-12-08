@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import React, { useEffect } from "react";
 
 // Utils
 import {
@@ -21,17 +21,21 @@ import SearchIcon from "@mui/icons-material/Search";
 
 // Hooks
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
+import { Search } from "@mui/icons-material";
 
 const NavBar = ({ setAuthenticated }) => {
   const navigate = useNavigate();
+  const location = useLocation()
   const {
     cart,
     handleRemoveItem,
     handleUpdateQuantity,
     handleSearch,
     setSearchTerm,
+    searchTerm,
+    handleKeyDown,
   } = useCart();
   const user = JSON.parse(localStorage.getItem("user")) || "Usuário";
   const [isCartOpen, setCartOpen] = useState(false);
@@ -41,6 +45,10 @@ const NavBar = ({ setAuthenticated }) => {
     setAuthenticated(false);
     navigate("/login");
   };
+
+  useEffect(() => {
+    setSearchTerm("")
+  }, [location, setSearchTerm])
 
   return (
     <>
@@ -61,7 +69,9 @@ const NavBar = ({ setAuthenticated }) => {
                 width: "100%",
                 marginRight: "8px",
               }}
+              value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleKeyDown}
             ></TextField>
             <IconButton
               color="secondary"
