@@ -2,7 +2,7 @@
 import React from "react";
 
 // Utils
-import { Grid2 } from "@mui/material";
+import { Grid2, Box, Typography } from "@mui/material";
 
 // Components
 import ProductShowcase from "../components/ProductShowcase/ProductShowcase";
@@ -17,10 +17,29 @@ const ShowCase = () => {
   const { handleAddToCart } = useCart();
 
   return (
-    <>
-      <Grid2 container spacing={3} padding={3}>
+    <Box
+      sx={{
+        background: "#f7f9fc",
+        minHeight: "100vh",
+        padding: "2rem",
+      }}
+    >
+      <Typography
+        variant="h5"
+        sx={{
+          textAlign: "center",
+          marginBottom: "2rem",
+          fontWeight: "bold",
+        }}
+      >
+        Vitrine de Produtos
+      </Typography>
+      <Grid2 container spacing={4}
+      sx={{display: "flex", justifyContent: "center"}}>
         {products.map((product) => (
-          <Grid2 item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <Grid2
+            key={product.id}
+          >
             <ProductShowcase
               product={product}
               onAddToCart={handleAddToCart}
@@ -28,7 +47,7 @@ const ShowCase = () => {
           </Grid2>
         ))}
       </Grid2>
-    </>
+    </Box>
   );
 };
 
