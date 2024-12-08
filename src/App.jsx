@@ -14,7 +14,7 @@ import Products from "./pages/Products";
 // Components
 import LoginForm from "./components/LoginForm/LoginForm.jsx";
 import CadastroForm from "./components/CadastroForm/CadastroForm.jsx";
-import NavBar from "./components/Navbar/NavBar.jsx";
+import NavB from "./components/NavB/NavB.jsx";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -62,7 +62,7 @@ const MainContent = ({ cart, setAuthenticated, setCart, authenticated }) => {
   return (
     <>
       <CartProvider>
-        {showNavbar && <NavBar setAuthenticated={setAuthenticated}></NavBar>}
+        {showNavbar && <NavB setAuthenticated={setAuthenticated}></NavB>}
 
         <Routes>
           <Route
