@@ -4,12 +4,11 @@ import React from "react";
 import { Grid2 } from "@mui/material";
 // Components
 import ProductShowcase from "../components/ProductShowcase/ProductShowcase";
-import ProductCart from "../components/ProductCart/ProductCart";
 
 // Json
 import products from "../utils/products.json";
 
-const ShowCase = ({cart, setCart}) => {
+const ShowCase = ({ setCart}) => {
     const handleAddToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
@@ -24,21 +23,7 @@ const ShowCase = ({cart, setCart}) => {
     });
   };
 
-  const handleUpdateQuantity = (productId, quantity) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((item) =>
-          item.id === productId
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
 
-  const handleRemoveItem = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-  };
 
   return (
     <>
@@ -52,11 +37,6 @@ const ShowCase = ({cart, setCart}) => {
           </Grid2>
         ))}
       </Grid2>
-      <ProductCart
-        cartItems={cart}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemoveItem={handleRemoveItem}
-      ></ProductCart>
     </>
   );
 };

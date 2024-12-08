@@ -124,8 +124,8 @@ const LoginForm = ({ setAuthenticated }) => {
           flex={6}
         >
           <img
-            src="https://res.cloudinary.com/dvqvv2bkq/image/upload/v1733522620/images/photo/vsksil2k8zy52sargvk6.jpg"
-            width="1000px"
+            src="https://res.cloudinary.com/dvqvv2bkq/image/upload/v1733628276/images/photo/siq0tscmcfigsng8pzwe.png"
+            width="80%"
             alt=""
           />
         </Box>
