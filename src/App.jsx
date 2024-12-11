@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ShowCase from "./pages/Showcase";
 import Products from "./pages/Products";
+import Profile from "./pages/Profile"
 
 // Components
 import LoginForm from "./components/LoginForm/LoginForm.jsx";
@@ -100,6 +101,10 @@ const MainContent = ({ cart, setAuthenticated, setCart, authenticated }) => {
           <Route
             path="/products"
             element={<Products setAuthenticated={setAuthenticated}></Products>}
+          />
+          <Route
+            path="/profile"
+            element={<Profile setAuthenticated={setAuthenticated}></Profile>}
           />
           <Route
             path="/"
