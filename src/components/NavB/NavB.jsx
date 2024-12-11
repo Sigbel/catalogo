@@ -23,6 +23,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import ProductCart from "./../ProductCart/ProductCart";
 import SearchIcon from "@mui/icons-material/Search";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle"
 
 // Hooks
 import { useState } from "react";
@@ -120,12 +121,16 @@ const NavB = ({ setAuthenticated }) => {
                   Olá, {user.name}
                 </Typography>
   
+                <IconButton color="inherit" onClick={() => navigate("/profile")}>
+                  <AccountCircleIcon></AccountCircleIcon>
+                </IconButton>
+  
                 <IconButton color="inherit" onClick={() => setCartOpen(true)}>
                   <Badge badgeContent={cart.length} color="error">
                     <ShoppingCartIcon></ShoppingCartIcon>
                   </Badge>
                 </IconButton>
-  
+
                 <IconButton color="inherit" onClick={handleLogout}>
                   <LogoutIcon></LogoutIcon>
                 </IconButton>

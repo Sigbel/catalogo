@@ -11,6 +11,7 @@ import {
   FormControl,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 // Hooks
 import { useNavigate } from "react-router-dom";
@@ -25,10 +26,15 @@ const CadastroForm = () => {
 
   const handleSignUp = () => {
     if (name && cpf && password) {
-      const users = JSON.parse(localStorage.getItem("users")) || [];
       const points = Math.floor(Math.random() * (1000 - 10 + 1)) + 10;
       const user = { name, email, cpf, password, points };
-      users.push(user);
+
+      const newUser = { ...user, id: uuidv4() };
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+
+      users.push(newUser);
+
       localStorage.setItem("users", JSON.stringify(users));
 
       alert("Cadastro realizado com sucesso!");
@@ -66,14 +72,16 @@ const CadastroForm = () => {
             width="80px"
           ></img>
           <Box display="flex" flexDirection="column" gap={0.5} marginBottom={2}>
-            <Typography variant="h6" align="center">Cadastre-se!</Typography>
+            <Typography variant="h6" align="center">
+              Cadastre-se!
+            </Typography>
           </Box>
           <Box
             component="form"
             bgcolor="#ffffff"
             display="flex"
             flexDirection="column"
-            maxWidth={{xs: "100%", md: "360px"}}
+            maxWidth={{ xs: "100%", md: "360px" }}
             gap={2}
             width="100%"
             borderRadius={1}
@@ -126,7 +134,7 @@ const CadastroForm = () => {
           </Box>
           <Box
             display="flex"
-            flexDirection={{xs: "column", md: "row"}}
+            flexDirection={{ xs: "column", md: "row" }}
             gap={1}
             justifyContent="space-between"
             width="100%"
@@ -151,7 +159,7 @@ const CadastroForm = () => {
           display="flex"
           justifyContent="center"
           alignItems="center"
-          sx={{padding:2, minHeight: {xs: "300px", md:"100vh"}}}
+          sx={{ padding: 2, minHeight: { xs: "300px", md: "100vh" } }}
           flex={6}
         >
           <img

@@ -58,8 +58,14 @@ const Profile = () => {
   };
 
   const handleSaveData = () => {
+    const users = JSON.parse(localStorage.getItem("users")) || []
+    
+    const updatedUsers = users.map((u) => u.id === user.id ? {...u, address} : u)
+    localStorage.setItem("users", JSON.stringify(updatedUsers))
+
     const updatedUser = { ...user, address };
     localStorage.setItem("user", JSON.stringify(updatedUser));
+    
     alert("Endereço salvo com sucesso!");
   };
 
