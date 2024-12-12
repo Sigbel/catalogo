@@ -30,7 +30,7 @@ const ProductCart = ({
   clearCart,
 }) => {
   const [openModal, setOpenModal] = useState(false);
-  const [orderid, setOrderId] = useState("")
+  const [orderid, setOrderId] = useState("");
 
   const handleClose = () => {
     clearCart();
@@ -57,23 +57,23 @@ const ProductCart = ({
 
       const users = JSON.parse(localStorage.getItem("users")) || [];
 
-      const userExists = users.find((u) => u.id === user.id)
+      const userExists = users.find((u) => u.id === user.id);
 
       if (userExists) {
         if (!userExists.orders) {
-          userExists.orders = []
+          userExists.orders = [];
         }
-        userExists.orders.push(order)
+        userExists.orders.push(order);
       } else {
-        users.push ({...user, orders: [order]})
+        users.push({ ...user, orders: [order] });
       }
 
       // const updatedUsersOrder = users.map((u) => u.id === user.id ? {...u, orders: [order]} : u)
-      localStorage.setItem("users", JSON.stringify(users))
+      localStorage.setItem("users", JSON.stringify(users));
 
       // const updatedUserOrder = { ...user, orders: [order] };
       // localStorage.setItem("user", JSON.stringify(users));
-      setOrderId(order.id)
+      setOrderId(order.id);
 
       setOpenModal(true);
     } else {
@@ -123,12 +123,24 @@ const ProductCart = ({
             </ListItem>
           ))}
         </List>
+        {cartItems.length > 0 && (
+          <Button
+            sx={{
+              p: 3,
+              width: "100%",
+              backgroundColor: "#5271ff",
+              color: "white",
+            }}
+            onClick={handleOrder}
+          >
+            Fechar Pedido
+          </Button>
+        )}
         {cartItems.length === 0 && (
           <Typography variant="body2">Seu carrinho está vazio.</Typography>
         )}
       </Box>
       <Box>
-        <Button onClick={handleOrder}>Fechar Pedido</Button>
         <Modal
           open={openModal}
           onClose={handleClose}

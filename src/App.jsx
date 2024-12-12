@@ -16,6 +16,7 @@ import Profile from "./pages/Profile"
 import LoginForm from "./components/LoginForm/LoginForm.jsx";
 import CadastroForm from "./components/CadastroForm/CadastroForm.jsx";
 import NavB from "./components/NavB/NavB.jsx";
+import Orders from "./pages/Orders.jsx";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -105,6 +106,10 @@ const MainContent = ({ cart, setAuthenticated, setCart, authenticated }) => {
           <Route
             path="/profile"
             element={<Profile setAuthenticated={setAuthenticated}></Profile>}
+          />
+          <Route
+            path="/orders"
+            element={<Orders setAuthenticated={setAuthenticated}></Orders>}
           />
           <Route
             path="/"
