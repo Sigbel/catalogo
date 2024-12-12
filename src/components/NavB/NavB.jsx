@@ -42,6 +42,7 @@ const NavB = ({ setAuthenticated }) => {
       setSearchTerm,
       searchTerm,
       handleKeyDown,
+      clearCart
     } = useCart();
     const user = JSON.parse(localStorage.getItem("user")) || "Usuário";
     const [isCartOpen, setCartOpen] = useState(false);
@@ -53,6 +54,13 @@ const NavB = ({ setAuthenticated }) => {
       setAuthenticated(false);
       navigate("/login");
     };
+
+    const addPoints = () => {
+      const user = JSON.parse(localStorage.getItem("user"));
+      user.points += 1000
+      console.log(user)
+      localStorage.setItem("user", JSON.stringify(user))
+    }
   
     useEffect(() => {
       setSearchTerm("");
@@ -131,6 +139,10 @@ const NavB = ({ setAuthenticated }) => {
                   </Badge>
                 </IconButton>
 
+                {/* <IconButton onClick={addPoints}>
+                <ShoppingCartIcon></ShoppingCartIcon>
+                </IconButton> */}
+
                 <IconButton color="inherit" onClick={handleLogout}>
                   <LogoutIcon></LogoutIcon>
                 </IconButton>
@@ -170,6 +182,7 @@ const NavB = ({ setAuthenticated }) => {
           cartItems={cart}
           onUpdateQuantity={handleUpdateQuantity}
           onRemoveItem={handleRemoveItem}
+          clearCart={clearCart}
         ></ProductCart>
       </>
     );

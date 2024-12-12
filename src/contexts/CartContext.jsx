@@ -14,6 +14,10 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const clearCart = () => {
+    setCart([])
+  }
+
   const navigate = useNavigate();
 
   const handleUpdateQuantity = (productId, quantity) => {
@@ -77,6 +81,7 @@ const CartProvider = ({ children }) => {
         searchTerm,
         setSearchTerm,
         handleKeyDown,
+        clearCart,
       }}
     >
       {children}
